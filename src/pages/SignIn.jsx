@@ -6,12 +6,9 @@ import {
   Button,
   StyledLink,
   Form,
-  Logo,
   Content,
   Title,
 } from "../styles/AuthStyle";
-import { BsCalendar2Date } from "react-icons/bs";
-import logo from "../images/Logo.png";
 
 export default function SignIn() {
   //const URL = process.env.REACT_APP_URL || "AAA";
@@ -34,9 +31,6 @@ export default function SignIn() {
 
   return (
     <Container>
-      <Logo>
-        <BsCalendar2Date color="#2a2a2a" size={150} />
-      </Logo>
       <Content>
         <Title>Welcome</Title>
         <Form onSubmit={handleRegister}>
