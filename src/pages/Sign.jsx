@@ -1,3 +1,4 @@
 export default function SignIn() {
-  return <div>SignIn</div>;
+  const URL = process.env.REACT_APP_URL || "AAA";
+  return <div>{URL}</div>;
 }
