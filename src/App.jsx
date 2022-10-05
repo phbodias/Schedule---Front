@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Sign from "./pages/Sign";
+import SignIn from "./pages/Sign";
 import GlobalStyle from "./styles/globalStyles";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<Sign />} />
+        <Route path="/" element={<SignIn />} />
       </Routes>
     </BrowserRouter>
   );
