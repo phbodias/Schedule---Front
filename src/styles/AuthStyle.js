@@ -2,33 +2,40 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  background: rgb(42, 42, 42);
   background: linear-gradient(
     90deg,
-    rgba(42, 42, 42, 1) 0%,
-    rgba(71, 70, 78, 1) 40%,
-    rgba(31, 25, 130, 1) 61%,
-    rgba(203, 202, 231, 1) 100%
+    rgba(30, 42, 40, 1) 0%,
+    rgba(17, 32, 41, 1) 8%,
+    rgba(17, 32, 41, 1) 92%,
+    rgba(30, 42, 40, 1) 100%
   );
   height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 const Logo = styled.div`
-  img {
-    width: 400px;
-    object-fit: cover;
-    opacity: 0.3;
-    filter: opacity(0.4);
-  }
-  margin: 0 10vw;
+  margin: -150px -30px 0 0;
+  transform: rotate(315deg); /* Equal to rotateZ(45deg) */
 `;
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  opacity: 0.8;
+  width: 250px;
+  height: 400px;
+  z-index: 1;
+  border-radius: 4px;
+`;
+
+const Title = styled.div`
+  font-size: 35px;
+  color: grey;
+  margin: -30px 0 40px 0;
 `;
 
 const Form = styled.form`
@@ -38,7 +45,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  width: 250px;
+  width: 200px;
   height: 40px;
   margin-bottom: 15px;
   padding: 7px;
@@ -49,7 +56,7 @@ const Input = styled.input`
 
 const Button = styled.button`
   margin-top: 15px;
-  width: 250px;
+  width: 200px;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -58,7 +65,7 @@ const Button = styled.button`
   background: rgb(187, 186, 207);
   border: none;
   border-radius: 9px;
-  opacity: 0.7;
+  opacity: 0.4;
 `;
 
 const StyledLink = styled(Link)`
@@ -68,8 +75,8 @@ const StyledLink = styled(Link)`
   font-size: 15px;
   line-height: 24px;
   text-decoration-line: underline;
-  color: #ffffff;
+  color: lightblue;
   margin-top: 14px;
 `;
 
-export { Container, Logo, Content, Form, Input, Button, StyledLink };
+export { Container, Logo, Content, Title, Form, Input, Button, StyledLink };

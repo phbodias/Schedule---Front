@@ -8,7 +8,9 @@ import {
   Form,
   Logo,
   Content,
+  Title,
 } from "../styles/AuthStyle";
+import { BsCalendar2Date } from "react-icons/bs";
 import logo from "../images/Logo.png";
 
 export default function SignIn() {
@@ -33,14 +35,15 @@ export default function SignIn() {
   return (
     <Container>
       <Logo>
-        <img src={logo} alt="logo" />
+        <BsCalendar2Date color="#2a2a2a" size={150} />
       </Logo>
       <Content>
+        <Title>Welcome</Title>
         <Form onSubmit={handleRegister}>
           <Input
             type="email"
             name="email"
-            placeholder="Email"
+            placeholder="email"
             value={data.email}
             onChange={handleInputChange}
             desabilitado={loading}
@@ -48,7 +51,7 @@ export default function SignIn() {
           <Input
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="password"
             value={data.password}
             onChange={handleInputChange}
             desabilitado={loading}
@@ -57,7 +60,7 @@ export default function SignIn() {
             {loading ? (
               <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
-              <p>Log In</p>
+              <p>Sign In</p>
             )}
           </Button>
         </Form>
