@@ -10,12 +10,13 @@ import {
   Title,
 } from "../styles/AuthStyle";
 
-export default function SignIn() {
+export default function SignUp() {
   //const URL = process.env.REACT_APP_URL || "AAA";
 
   const [loading, setLoading] = useState(false);
 
   const [data, setData] = useState({
+    name: "",
     email: "",
     password: "",
   });
@@ -32,8 +33,16 @@ export default function SignIn() {
   return (
     <Container>
       <Content>
-        <Title>Welcome back</Title>
+        <Title>Join us today</Title>
         <Form onSubmit={handleRegister}>
+          <Input
+            type="name"
+            name="name"
+            placeholder="name"
+            value={data.name}
+            onChange={handleInputChange}
+            desabilitado={loading}
+          />
           <Input
             type="email"
             name="email"
@@ -54,11 +63,11 @@ export default function SignIn() {
             {loading ? (
               <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
-              <p>Sign In</p>
+              <p>Sign Up</p>
             )}
           </Button>
         </Form>
-        <StyledLink to="/sign-up">First time? Create an account!</StyledLink>
+        <StyledLink to="/">Already have an account? Sign In</StyledLink>
       </Content>
     </Container>
   );
