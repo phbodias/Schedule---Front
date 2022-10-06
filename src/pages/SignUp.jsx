@@ -67,7 +67,7 @@ export default function SignUp() {
             )}
           </Button>
         </Form>
-        <StyledLink to="/">Already have an account? Sign In</StyledLink>
+        <StyledLink to="/sign-in">Already have an account? Sign In</StyledLink>
       </Content>
     </Container>
   );
