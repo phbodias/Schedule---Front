@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 const Container = styled.header`
   width: 100vw;
-  height: 100vh;
-  background-color: #00172b;
+  min-height: 1500px;
+  background-color: #F0F2F5;
   position: fixed;
   display: flex;
+  padding: 20px;
 `;
 
 export { Container };
