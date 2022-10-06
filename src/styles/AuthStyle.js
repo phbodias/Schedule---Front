@@ -35,7 +35,7 @@ const Form = styled.form`
   flex-direction: column;
   align-items: center;
   width: 80%;
-  height: 200px;
+  
 `;
 
 const Input = styled.input`
