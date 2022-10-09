@@ -1,3 +1,4 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Professionals from "../components/Professionals";
 import Sidebar from "../components/Sidebar";
@@ -7,12 +8,13 @@ export default function Home() {
   return (
     <Container>
       <LeftSide>
-        <Sidebar/>
+        <Sidebar />
       </LeftSide>
       <RigthSide>
         <Header page="Home" />
         <Professionals />
       </RigthSide>
+      <Footer />
     </Container>
   );
 }

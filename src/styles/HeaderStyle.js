@@ -37,7 +37,13 @@ const UserAddress = styled.div`
   color: #f0f2f5;
 
   p {
-    margin-right: 7px;
+    margin: 0 7px;
+  }
+
+  @media (max-width: 768px){
+    p{
+      display: none;
+    }
   }
 `;
 

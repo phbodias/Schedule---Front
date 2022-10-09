@@ -19,7 +19,7 @@ const User = styled.div`
   margin-bottom: 20px;
 
   p{
-    margin-left: 10px;
+    margin: 0 10px;
   }
 `
 

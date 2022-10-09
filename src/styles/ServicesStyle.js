@@ -6,17 +6,19 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   color: #ffffff;
+  padding: 0 10px 10px 0;
 `;
 
 const Service = styled.div`
   width: 85%;
   height: 45px;
-  margin: 3px 0;
+  margin: 3px;
   display: flex;
   align-items: center;
-  padding-left: 15%;
+  padding-left: 10%;
   box-sizing: border-box;
   cursor: pointer;
+  overflow-x: scroll;
 
   :hover {
     border-radius: 9px;

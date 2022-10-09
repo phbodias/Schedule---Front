@@ -9,7 +9,7 @@ const Card = styled.div`
   align-items: center;
   padding: 15px;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  margin: 10px;
   font-size: 17px;
   cursor: pointer;
 
@@ -30,6 +30,10 @@ const Card = styled.div`
   p:nth-child(2) {
     color: #348ded;
     font-size: 12px;
+  }
+
+  :hover {
+    background-color: hsl(240, 5%, 26%);
   }
 `;
 
