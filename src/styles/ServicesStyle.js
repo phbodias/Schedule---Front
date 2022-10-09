@@ -5,7 +5,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #D8D8D9;
+  color: #ffffff;
 `;
 
 const Service = styled.div`
@@ -16,11 +16,11 @@ const Service = styled.div`
   align-items: center;
   padding-left: 15%;
   box-sizing: border-box;
-  cursor: all-scroll;
+  cursor: pointer;
 
   :hover {
     border-radius: 9px;
-    background-color: #5A5A5E;
+    background-color: #348DED;
   }
 `;
 

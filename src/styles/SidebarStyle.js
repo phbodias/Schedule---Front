@@ -3,8 +3,10 @@ import styled from "styled-components";
 const Container = styled.div`
   width: 18vw;
   height: 93vh;
+  max-height: 600px;
   background-color: hsl(240, 5%, 26%);
   border-radius: 9px;
+  position: fixed;
 `;
 
 const User = styled.div`
