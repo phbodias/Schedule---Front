@@ -8,7 +8,7 @@ import {
   Day,
   Time,
   Times,
-} from "../../styles/ProfModalStyle";
+} from "../../styles/Components/ProfModalStyle";
 
 Modal.setAppElement("#root");
 

@@ -1,4 +1,4 @@
-import { Container } from "../styles/FooterStyle";
+import { Container } from "../styles/Components/FooterStyle";
 import { Link } from "react-router-dom";
 
 export default function Footer({ actualPage }) {
@@ -34,6 +34,10 @@ export default function Footer({ actualPage }) {
           <p>Agenda</p>
         </div>
       </Link>
+      <div>
+        <ion-icon name="log-out-outline"></ion-icon>
+        <p>Sair</p>
+      </div>
     </Container>
   );
 }

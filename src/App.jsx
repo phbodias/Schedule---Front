@@ -4,7 +4,7 @@ import MySchedule from "./pages/MySchedule";
 import Search from "./pages/Search";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import GlobalStyle from "./styles/globalStyles";
+import GlobalStyle from "./styles/Global/globalStyles";
 
 function App() {
   return (

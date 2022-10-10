@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
+import { useNavigate } from "react-router-dom";
 import {
   Container,
   Input,
@@ -8,10 +9,11 @@ import {
   Form,
   Content,
   Title,
-} from "../styles/AuthStyle";
+} from "../styles/Pages/AuthStyle";
 
 export default function SignUp() {
   //const URL = process.env.REACT_APP_URL || "AAA";
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
@@ -19,11 +21,16 @@ export default function SignUp() {
     name: "",
     email: "",
     password: "",
+    profilePic: "",
   });
+
+  function signUp(){
+    navigate("/sign-in")
+  }
 
   function handleRegister(e) {
     e.preventDefault();
-    setLoading(true);
+    //setLoading(true);
   }
 
   function handleInputChange(e) {
@@ -41,7 +48,6 @@ export default function SignUp() {
             placeholder="name"
             value={data.name}
             onChange={handleInputChange}
-            desabilitado={loading}
           />
           <Input
             type="email"
@@ -49,7 +55,6 @@ export default function SignUp() {
             placeholder="email"
             value={data.email}
             onChange={handleInputChange}
-            desabilitado={loading}
           />
           <Input
             type="password"
@@ -57,13 +62,18 @@ export default function SignUp() {
             placeholder="password"
             value={data.password}
             onChange={handleInputChange}
-            desabilitado={loading}
+          />
+          <p>Foto de perfil</p>
+          <Input
+            type="file"
+            name="profilePic"
+            accept=".png, .jpg, .jpeg"
           />
           <Button type="submit">
             {loading ? (
               <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
-              <p>Sign Up</p>
+              <p onClick={signUp}>Sign Up</p>
             )}
           </Button>
         </Form>

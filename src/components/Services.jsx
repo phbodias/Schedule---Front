@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Service } from "../styles/ServicesStyle";
+import { Container, Service } from "../styles/Components/ServicesStyle";
 
 export default function Services() {
   const [services, setServices] = useState([

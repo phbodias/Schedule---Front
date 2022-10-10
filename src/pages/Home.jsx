@@ -2,7 +2,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Professionals from "../components/Professionals";
 import Sidebar from "../components/Sidebar";
-import { Container, LeftSide, RigthSide } from "../styles/HomeStyle";
+import { Container, LeftSide, RigthSide } from "../styles/Pages/HomeStyle";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
         <Sidebar />
       </LeftSide>
       <RigthSide>
-        <Header actualPage={"Home"} />
+        <Header />
         <Professionals />
       </RigthSide>
       <Footer actualPage={"Home"} />

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Card } from "../styles/ProfessionalCardStyle";
+import { Card } from "../styles/Components/ProfessionalCardStyle";
 import ProfessionalInfos from "./modals/ProfInfos";
 
 export default function ProfessionalCard({ name, pic, service }) {

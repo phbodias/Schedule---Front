@@ -1,7 +1,7 @@
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Services from "../components/Services";
-import { Container, Content } from "../styles/SearchPageStyle";
+import { Container, Content } from "../styles/Pages/SearchPageStyle";
 
 export default function Search() {
   return (

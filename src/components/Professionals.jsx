@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container } from "../styles/ProfessionalsStyle";
+import { Container } from "../styles/Components/ProfessionalsStyle";
 import ProfessionalCard from "./ProfessionalCard";
 
 export default function Professionals() {

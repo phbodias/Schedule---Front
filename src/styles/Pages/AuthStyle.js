@@ -1,21 +1,24 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import background from "../images/background.png";
+import background from "../../images/background.png";
 
 const Container = styled.div`
   background-image: url("${background}");
+  background-color: red;
   background-position: center;
   object-fit: cover;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  padding: 10px;
 `;
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 25vw;
   min-width: 250px;
   height: 600px;
@@ -26,8 +29,8 @@ const Content = styled.div`
 
 const Title = styled.div`
   font-size: 35px;
+  margin-bottom: 30px;
   color: grey;
-  margin: 90px 0 90px 0;
   text-align: center;
 `;
 
