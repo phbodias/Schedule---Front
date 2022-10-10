@@ -4,7 +4,6 @@ const Container = styled.header`
   position: fixed;
   width: 62%;
   height: 80px;
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

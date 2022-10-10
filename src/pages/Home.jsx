@@ -11,10 +11,10 @@ export default function Home() {
         <Sidebar />
       </LeftSide>
       <RigthSide>
-        <Header page="Home" />
+        <Header actualPage={"Home"} />
         <Professionals />
       </RigthSide>
-      <Footer />
+      <Footer actualPage={"Home"} />
     </Container>
   );
 }

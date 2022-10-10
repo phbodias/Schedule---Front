@@ -28,6 +28,7 @@ const Title = styled.div`
   font-size: 35px;
   color: grey;
   margin: 90px 0 90px 0;
+  text-align: center;
 `;
 
 const Form = styled.form`

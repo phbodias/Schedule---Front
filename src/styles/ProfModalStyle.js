@@ -77,8 +77,8 @@ const Times = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   margin-bottom: 5px;
-  overflow-x: scroll;
 `;
 
 const Time = styled.div`
