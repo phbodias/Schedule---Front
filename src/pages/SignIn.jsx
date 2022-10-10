@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 import {
   Container,
@@ -8,10 +9,11 @@ import {
   Form,
   Content,
   Title,
-} from "../styles/AuthStyle";
+} from "../styles/Pages/AuthStyle";
 
 export default function SignIn() {
   //const URL = process.env.REACT_APP_URL || "AAA";
+  const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
 
@@ -20,9 +22,14 @@ export default function SignIn() {
     password: "",
   });
 
+  function signIn() {
+    setLoading(false);
+    navigate("/");
+  }
+
   function handleRegister(e) {
     e.preventDefault();
-    setLoading(true);
+    //setLoading(true);
   }
 
   function handleInputChange(e) {
@@ -54,7 +61,7 @@ export default function SignIn() {
             {loading ? (
               <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
-              <p>Sign In</p>
+              <p onClick={signIn}>Sign In</p>
             )}
           </Button>
         </Form>
