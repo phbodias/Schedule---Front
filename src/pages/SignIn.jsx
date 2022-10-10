@@ -39,7 +39,7 @@ export default function SignIn() {
   return (
     <Container>
       <Content>
-        <Title>Welcome back</Title>
+        <Title>Bem vindo</Title>
         <Form onSubmit={handleRegister}>
           <Input
             type="email"
@@ -52,7 +52,7 @@ export default function SignIn() {
           <Input
             type="password"
             name="password"
-            placeholder="password"
+            placeholder="senha"
             value={data.password}
             onChange={handleInputChange}
             desabilitado={loading}
@@ -65,7 +65,7 @@ export default function SignIn() {
             )}
           </Button>
         </Form>
-        <StyledLink to="/sign-up">First time? Create an account!</StyledLink>
+        <StyledLink to="/sign-up">Primeira vez? Crie sua conta</StyledLink>
       </Content>
     </Container>
   );
