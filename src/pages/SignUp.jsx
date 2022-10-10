@@ -40,12 +40,12 @@ export default function SignUp() {
   return (
     <Container>
       <Content>
-        <Title>Join us today</Title>
+        <Title>Junte-se a nós</Title>
         <Form onSubmit={handleRegister}>
           <Input
             type="name"
             name="name"
-            placeholder="name"
+            placeholder="nome"
             value={data.name}
             onChange={handleInputChange}
           />
@@ -58,7 +58,7 @@ export default function SignUp() {
           />
           <Input
             type="password"
-            name="password"
+            name="senha"
             placeholder="password"
             value={data.password}
             onChange={handleInputChange}
@@ -73,11 +73,11 @@ export default function SignUp() {
             {loading ? (
               <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
-              <p onClick={signUp}>Sign Up</p>
+              <p onClick={signUp}>Cadastrar</p>
             )}
           </Button>
         </Form>
-        <StyledLink to="/sign-in">Already have an account? Sign In</StyledLink>
+        <StyledLink to="/sign-in">Já possui uma conta? Faça login</StyledLink>
       </Content>
     </Container>
   );
