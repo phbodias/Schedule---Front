@@ -34,10 +34,12 @@ export default function Footer({ actualPage }) {
           <p>Agenda</p>
         </div>
       </Link>
-      <div>
-        <ion-icon name="log-out-outline"></ion-icon>
-        <p>Sair</p>
-      </div>
+      <Link to="/sign-in" style={{ textDecoration: "none" }}>
+        <div>
+          <ion-icon name="log-out-outline"></ion-icon>
+          <p>Sair</p>
+        </div>
+      </Link>
     </Container>
   );
 }
