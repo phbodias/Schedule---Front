@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ClickAwayListener from "react-click-away-listener";
 import {
   Cities,
@@ -7,11 +7,17 @@ import {
   InputSearch,
   Options,
 } from "../styles/Components/HeaderStyle";
+import CityContext from "../contexts/cityContext";
 
 export default function Header() {
+  const { city, setCity } = useContext(CityContext);
   const [showCities, setShowCities] = useState(false);
-  const [actualCity, setActualCity] = useState("Campinas - SP");
-  const cities = ["Rio de Janeiro - RJ", "São Paulo - SP", "Brasília - DF"];
+  const cities = ["Campinas", "São Paulo", "Rio de Janeiro", "Brasília"];
+
+  function changeCity(cityToChange) {
+    setCity(cityToChange);
+    localStorage.setItem("citySelected", cityToChange);
+  }
 
   return (
     <Container>
@@ -22,7 +28,7 @@ export default function Header() {
       <ClickAwayListener onClickAway={() => setShowCities(false)}>
         <City onClick={() => setShowCities(!showCities)}>
           <p>
-            <p>{actualCity}</p>
+            <p>{city}</p>
             {showCities ? (
               <ion-icon name="chevron-up-outline"></ion-icon>
             ) : (
@@ -33,7 +39,7 @@ export default function Header() {
             <Cities>
               {cities.map((city, index) => {
                 return (
-                  <Options key={index} onClick={() => setActualCity(`${city}`)}>
+                  <Options key={index} onClick={() => changeCity(city)}>
                     {city}
                   </Options>
                 );

@@ -32,12 +32,13 @@ export default function SignIn() {
       .then((res) => {
         console.log(res.data)
         localStorage.setItem("tokenSchedule", res.data.token);
-        localStorage.setItem("tuserSchedule", res.data.user);
+        localStorage.setItem("userNameSchedule", res.data.user.name);
+        localStorage.setItem("userPicSchedule", res.data.user.profilePic);
         navigate("/");
       })
       .catch((error) => {
         alert(
-          `Erro ao cadastrar: \n\n${error.response.status} - ${error.response.data}`
+          `Erro ao logar: \n\n${error.response.status} - ${error.response.data}`
         );
         setLoading(false);
       });

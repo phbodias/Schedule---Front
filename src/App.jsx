@@ -5,19 +5,28 @@ import Search from "./pages/Search";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import GlobalStyle from "./styles/Global/globalStyles";
+import CityContext from "./contexts/cityContext";
+import { useState } from "react";
 
 function App() {
+  const [city, setCity] = useState(
+    localStorage.getItem("citySelected") || "Campinas"
+  );
+
+  console.log(city);
   return (
-    <BrowserRouter>
-      <GlobalStyle />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/schedule" element={<MySchedule />} />
-      </Routes>
-    </BrowserRouter>
+    <CityContext.Provider value={{ city, setCity }}>
+      <BrowserRouter>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/schedule" element={<MySchedule />} />
+        </Routes>
+      </BrowserRouter>
+    </CityContext.Provider>
   );
 }
 
