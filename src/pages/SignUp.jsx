@@ -14,7 +14,6 @@ import {
 } from "../styles/Pages/AuthStyle";
 
 export default function SignUp() {
-  
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);

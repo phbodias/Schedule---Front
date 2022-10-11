@@ -9,27 +9,38 @@ import {
   Form,
   Content,
   Title,
+  ShowPass,
 } from "../styles/Pages/AuthStyle";
+import signInService from "../services/signin";
 
 export default function SignIn() {
-  //const URL = process.env.REACT_APP_URL || "AAA";
   const navigate = useNavigate();
-
   const [loading, setLoading] = useState(false);
-
+  const [showPass, setShowPass] = useState(false);
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
-  function signIn() {
-    setLoading(false);
-    navigate("/");
-  }
-
   function handleRegister(e) {
     e.preventDefault();
-    //setLoading(true);
+    setLoading(true);
+
+    const promise = signInService(data);
+
+    promise
+      .then((res) => {
+        console.log(res.data)
+        localStorage.setItem("tokenSchedule", res.data.token);
+        localStorage.setItem("tuserSchedule", res.data.user);
+        navigate("/");
+      })
+      .catch((error) => {
+        alert(
+          `Erro ao cadastrar: \n\n${error.response.status} - ${error.response.data}`
+        );
+        setLoading(false);
+      });
   }
 
   function handleInputChange(e) {
@@ -47,21 +58,36 @@ export default function SignIn() {
             placeholder="email"
             value={data.email}
             onChange={handleInputChange}
-            desabilitado={loading}
+            disabled={loading}
+            required
           />
-          <Input
-            type="password"
-            name="password"
-            placeholder="senha"
-            value={data.password}
-            onChange={handleInputChange}
-            desabilitado={loading}
-          />
+          <ShowPass>
+            <Input
+              type={showPass && !loading ? "text" : "password"}
+              name="password"
+              placeholder="senha"
+              value={data.password}
+              onChange={handleInputChange}
+              disabled={loading}
+              required
+            />
+            {data.password.length && !loading > 0 ? (
+              <p onClick={() => setShowPass(!showPass)}>
+                {showPass ? (
+                  <ion-icon name="eye-off-outline"></ion-icon>
+                ) : (
+                  <ion-icon name="eye-outline"></ion-icon>
+                )}
+              </p>
+            ) : (
+              ""
+            )}
+          </ShowPass>
           <Button type="submit">
             {loading ? (
               <ThreeDots color="#FFF" height={30} width={250} radius="10px" />
             ) : (
-              <p onClick={signIn}>Sign In</p>
+              <p onSubmit={handleRegister}>Entrar</p>
             )}
           </Button>
         </Form>
