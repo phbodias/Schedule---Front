@@ -4,7 +4,6 @@ import {
   Cities,
   City,
   Container,
-  InputSearch,
   Options,
 } from "../styles/Components/HeaderStyle";
 import CityContext from "../contexts/cityContext";
@@ -37,10 +36,6 @@ export default function Header() {
 
   return (
     <Container>
-      {/* <InputSearch
-        placeholder="O que você procura?"
-        name="search"
-      ></InputSearch> */}
       <ClickAwayListener onClickAway={() => setShowCities(false)}>
         <City onClick={() => setShowCities(!showCities)}>
           <p>
