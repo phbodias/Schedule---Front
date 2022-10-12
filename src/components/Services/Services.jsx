@@ -2,8 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Container, Service } from "./ServicesStyle";
 import getServices from "../../services/getServices";
-import { LoadingGif } from "../../styles/loadingGif";
-import loadingGif from "../../images/loadingGif.gif";
 
 export default function Services() {
   const navigate = useNavigate();
@@ -22,7 +20,7 @@ export default function Services() {
         setLoading(false);
       } catch (error) {
         alert(
-          `Erro ao carregar profissionais: \n\n${error.response.status} - ${error.response.data}`
+          `Erro ao carregar serviços: \n\n${error.response.status} - ${error.response.data}`
         );
       }
     }
@@ -31,11 +29,7 @@ export default function Services() {
 
   return (
     <Container>
-      {loading ? (
-        <LoadingGif>
-          <img src={loadingGif} alt="" />
-        </LoadingGif>
-      ) : (
+      {loading ? "": (
         services.map((service, key) => {
           return (
             <Service
