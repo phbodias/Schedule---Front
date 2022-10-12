@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card } from "../styles/Components/ProfessionalCardStyle";
 import ProfessionalInfos from "./modals/ProfInfos";
 
-export default function ProfessionalCard({ name, pic, service }) {
+export default function ProfessionalCard({ name, pic, service, id }) {
   const [open, setOpen] = useState(false);
 
   function openModal() {
@@ -22,7 +22,15 @@ export default function ProfessionalCard({ name, pic, service }) {
           <p>{service}</p>
         </div>
       </Card>
-      <ProfessionalInfos modalIsOpen={open} closeModal={() => closeModal()} />
+      {open ? (
+        <ProfessionalInfos
+          modalIsOpen={open}
+          closeModal={() => closeModal()}
+          professionalId={id}
+        />
+      ) : (
+        ""
+      )}
     </>
   );
 }
