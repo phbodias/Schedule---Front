@@ -5,9 +5,9 @@ import {
   City,
   Container,
   Options,
-} from "../styles/Components/HeaderStyle";
-import CityContext from "../contexts/cityContext";
-import getCities from "../services/getCities";
+} from "./HeaderStyle";
+import CityContext from "../../contexts/cityContext";
+import getCities from "../../services/getCities";
 
 export default function Header() {
   const { city, setCity } = useContext(CityContext);

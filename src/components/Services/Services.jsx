@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, Service } from "../styles/Components/ServicesStyle";
-import getServices from "../services/getServices";
+import { Container, Service } from "./ServicesStyle";
+import getServices from "../../services/getServices";
 
 export default function Services() {
   const navigate = useNavigate();

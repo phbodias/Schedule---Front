@@ -1,36 +1,39 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import ProfessionalCard from "../components/ProfessionalCard";
-import CityContext from "../contexts/cityContext";
-import { getProfessionalByServices } from "../services/getProfessionalsByService";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import CityContext from "../../contexts/cityContext";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import ProfessionalCard from "../../components/ProfessionalCard/ProfessionalCard";
+import { getProfessionalByServices } from "../../services/getProfessionalsByService";
 
 export default function ServicePage() {
   const { serviceId } = useParams();
-  const { city, setCity } = useContext(CityContext);
-  const [professionals, setProfessionals] = useState(false);
+  const { city } = useContext(CityContext);
+  const [loading, setLoading] = useState(true);
+  const [professionals, setProfessionals] = useState([]);
 
   useEffect(() => {
-    const promise = getProfessionalByServices(serviceId, city);
-
-    promise
-      .then((res) => {
-        setProfessionals(res.data);
-      })
-      .catch((error) => {
+    async function get() {
+      try {
+        const promise = await getProfessionalByServices(serviceId, city);
+        setProfessionals(promise.data);
+        setLoading(false);
+        console.log("Aqui", professionals);
+      } catch (error) {
         alert(
           `Erro ao carregar profissionais: \n\n${error.response.status} - ${error.response.data}`
         );
-      });
+      }
+    }
+    get();
   }, [city]);
 
   return (
     <Container>
       <Header />
       <Professionals>
-        {professionals
+        {!loading
           ? professionals.map((professional, key) => {
               return (
                 <ProfessionalCard
@@ -42,7 +45,7 @@ export default function ServicePage() {
                 />
               );
             })
-          : ""}
+          : "aaa"}
       </Professionals>
       <Footer />
     </Container>

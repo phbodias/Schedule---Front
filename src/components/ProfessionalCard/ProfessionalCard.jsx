@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Card } from "../styles/Components/ProfessionalCardStyle";
-import ProfessionalInfos from "./modals/ProfInfos";
+import { Card } from "./ProfessionalCardStyle";
+import ProfessionalInfos from "../modals/ProfInfos/ProfInfos";
 
 export default function ProfessionalCard({ name, pic, service, id }) {
   const [open, setOpen] = useState(false);

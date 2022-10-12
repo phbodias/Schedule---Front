@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from "react";
-import { getProfessionals } from "../services/getProfessionalsServices";
-import { Container } from "../styles/Components/ProfessionalsStyle";
-import ProfessionalCard from "./ProfessionalCard";
-import CityContext from "../contexts/cityContext";
+import { getProfessionals } from "../../services/getProfessionalsServices";
+import { Container } from "./ProfessionalsStyle";
+import ProfessionalCard from "../ProfessionalCard/ProfessionalCard";
+import CityContext from "../../contexts/cityContext";
 
 export default function Professionals() {
   const { city } = useContext(CityContext);

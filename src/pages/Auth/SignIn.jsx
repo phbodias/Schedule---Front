@@ -10,8 +10,8 @@ import {
   Content,
   Title,
   ShowPass,
-} from "../styles/Pages/AuthStyle";
-import signInService from "../services/signin";
+} from "./AuthStyle";
+import signInService from "../../services/signin";
 
 export default function SignIn() {
   const navigate = useNavigate();

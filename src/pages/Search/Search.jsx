@@ -1,7 +1,7 @@
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import Services from "../components/Services";
-import { Container, Content } from "../styles/Pages/SearchPageStyle";
+import { Container, Content } from "./SearchPageStyle";
+import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import Services from "../../components/Services/Services";
 
 export default function Search() {
   return (

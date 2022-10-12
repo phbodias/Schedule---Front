@@ -1,20 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import Home from "./pages/Home";
-import MySchedule from "./pages/MySchedule";
-import Search from "./pages/Search";
-import SignIn from "./pages/SignIn";
-import SignUp from "./pages/SignUp";
-import GlobalStyle from "./styles/Global/globalStyles";
 import CityContext from "./contexts/cityContext";
-import ServicePage from "./pages/ServicePage";
+import GlobalStyle from "./styles/Global/globalStyles";
+import Home from "./pages/Home/Home";
+import SignIn from "./pages/Auth/SignIn";
+import SignUp from "./pages/Auth/SignUp";
+import Search from "./pages/Search/Search";
+import MySchedule from "./pages/MySchedule/MySchedule";
+import ServicePage from "./pages/Service/ServicePage";
 
 function App() {
   const [city, setCity] = useState(
     localStorage.getItem("citySelected") || "Campinas"
   );
-
-  console.log("app page", city);
 
   return (
     <CityContext.Provider value={{ city, setCity }}>

@@ -1,5 +1,5 @@
-import Footer from "../components/Footer";
-import { Container, Event, Scheduled, User } from "../styles/Pages/MySchedule";
+import Footer from "../../components/Footer/Footer";
+import { Container, Event, Scheduled, User } from "./MyScheduleStyle";
 
 export default function MySchedule() {
   const scheduled = [

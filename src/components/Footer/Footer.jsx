@@ -1,4 +1,4 @@
-import { Container } from "../styles/Components/FooterStyle";
+import { Container } from "./FooterStyle";
 import { Link } from "react-router-dom";
 
 export default function Footer({ actualPage }) {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
-import signUpService from "../services/signup";
+import signUpService from "../../services/signup";
 import {
   Container,
   Input,
@@ -11,7 +11,7 @@ import {
   Content,
   Title,
   ShowPass,
-} from "../styles/Pages/AuthStyle";
+} from "./AuthStyle";
 
 export default function SignUp() {
   const navigate = useNavigate();

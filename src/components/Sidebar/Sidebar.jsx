@@ -1,7 +1,7 @@
-import { Container, Login, User } from "../styles/Components/SidebarStyle";
-import { Link, useNavigate } from "react-router-dom";
-import Services from "./Services";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { Container, Login, User } from "./SidebarStyle";
+import Services from "../Services/Services";
 
 export default function Sidebar() {
   const navigate = useNavigate();

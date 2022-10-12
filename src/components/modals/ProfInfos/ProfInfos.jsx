@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { getProfessionalById } from "../../services/getProfessionalById";
+import { getProfessionalById } from "../../../services/getProfessionalById";
 import {
   Address,
   Calendar,
@@ -10,7 +10,7 @@ import {
   Day,
   Time,
   Times,
-} from "../../styles/Components/ProfModalStyle";
+} from "./ProfModalStyle";
 
 Modal.setAppElement("#root");
 
