@@ -14,28 +14,11 @@ const Container = styled.header`
   -webkit-backdrop-filter: blur(13.5px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.8);
-  box-sizing: border-box;
 
   @media (max-width: 1024px) {
     width: 80%;
     position: relative;
     margin-bottom: -60px;
-  }
-`;
-
-const InputSearch = styled.input`
-  width: 30vw;
-  height: 50px;
-  background-color: #f0f2f5;
-  border: 1px solid #e0e3e7;
-  border-radius: 7px;
-  padding: 20px;
-  box-sizing: border-box;
-  color: #838a94;
-  font-size: 17px;
-
-  @media (max-width: 1024px) {
-    display: none;
   }
 `;
 
@@ -83,4 +66,4 @@ const Options = styled.div`
   }
 `;
 
-export { Container, InputSearch, City, Cities, Options };
+export { Container, City, Cities, Options };

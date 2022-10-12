@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   margin: 100px 0;
   max-width: 80%;
-  height: fit-content;
+  min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
   display: flex;

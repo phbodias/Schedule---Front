@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { getMany } from "../services/getProfessionalsServices";
+import { getProfessionals } from "../services/getProfessionalsServices";
 import { Container } from "../styles/Components/ProfessionalsStyle";
 import ProfessionalCard from "./ProfessionalCard";
 import CityContext from "../contexts/cityContext";
@@ -9,17 +9,16 @@ export default function Professionals() {
   const [professionals, setProfessionals] = useState([]);
 
   useEffect(() => {
-    const promise = getMany(city);
+    const promise = getProfessionals(city);
 
     promise
       .then((res) => {
         setProfessionals(res.data);
-        console.log(professionals);
       })
 
       .catch((error) => {
         alert(
-          `Erro ao carregar profissionvcais: \n\n${error.response.status} - ${error.response.data}`
+          `Erro ao carregar profissionais: \n\n${error.response.status} - ${error.response.data}`
         );
         //setLoading(false);
       });
@@ -33,6 +32,7 @@ export default function Professionals() {
             name={professional.name}
             pic={professional.profilePic}
             service={professional.Services.service}
+            id={professional.id}
             key={key}
           />
         );
