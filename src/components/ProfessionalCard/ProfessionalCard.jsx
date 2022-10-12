@@ -16,7 +16,7 @@ export default function ProfessionalCard({ name, pic, service, id }) {
   return (
     <>
       <Card onClick={openModal}>
-        <img src={pic} alt="profilePic" />
+        <img src={pic}  />
         <div>
           <p>{name}</p>
           <p>{service}</p>

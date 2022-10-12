@@ -7,6 +7,7 @@ import Footer from "../../components/Footer/Footer";
 import ProfessionalCard from "../../components/ProfessionalCard/ProfessionalCard";
 import { getProfessionalByServices } from "../../services/getProfessionalsByService";
 import loadingGif from "../../images/loadingGif.gif";
+import { LoadingGif } from "../../styles/loadingGif";
 
 export default function ServicePage() {
   const { serviceId } = useParams();
@@ -32,9 +33,9 @@ export default function ServicePage() {
   return (
     <>
       {loading ? (
-        <Loading>
+        <LoadingGif>
           <img src={loadingGif} />
-        </Loading>
+        </LoadingGif>
       ) : (
         <Container>
           <Header />
@@ -58,15 +59,7 @@ export default function ServicePage() {
   );
 }
 
-const Loading = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  background-color: #1a2035;
-`;
+
 
 const Container = styled.div`
   display: flex;
