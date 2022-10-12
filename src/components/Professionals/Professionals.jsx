@@ -14,10 +14,8 @@ export default function Professionals() {
   useEffect(() => {
     async function getProf() {
       try {
-        setLoading(true);
         const response = await getProfessionals(city);
         setProfessionals(response.data);
-        console.log(professionals);
         setLoading(false);
       } catch (error) {
         alert(

@@ -9,6 +9,7 @@ export default function Header() {
   const [showCities, setShowCities] = useState(false);
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(true);
+  console.log("actualCity", city);
 
   useEffect(() => {
     async function getData() {
@@ -38,13 +39,7 @@ export default function Header() {
         <ClickAwayListener onClickAway={() => setShowCities(false)}>
           <City onClick={() => setShowCities(!showCities)}>
             <p>
-              {cities.length > 0 ? (
-                <p>
-                  {cities[city - 1].city} - {cities[city - 1].States.initials}
-                </p>
-              ) : (
-                ""
-              )}
+              <p>{cities[city - 1].city}</p>
               {showCities ? (
                 <ion-icon name="chevron-up-outline"></ion-icon>
               ) : (
