@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { getProfessionalById } from "../../../services/getProfessionalById";
+import { LoadingGif } from "../../../styles/loadingGif";
+import loadingGif from "../../../images/loadingGif.gif";
 import {
   Address,
   Calendar,
@@ -19,21 +21,22 @@ export default function ProfessionalInfos({
   closeModal,
   professionalId,
 }) {
+  const [loading, setLoading] = useState(true);
   const [professional, setProfessional] = useState(false);
 
   useEffect(() => {
-    const promise = getProfessionalById(professionalId);
-
-    promise
-      .then((res) => {
-        setProfessional(res.data);
-      })
-      .catch((error) => {
+    async function loadData() {
+      try {
+        const promise = await getProfessionalById(professionalId);
+        setProfessional(promise.data);
+        setLoading(false)
+      } catch (error) {
         alert(
           `Erro ao carregar profissional: \n\n${error.response.status} - ${error.response.data}`
         );
-        //setLoading(false);
-      });
+      }
+    }
+    loadData();
   }, [modalIsOpen]);
 
   const availables = [
@@ -68,10 +71,10 @@ export default function ProfessionalInfos({
         <Close>
           <ion-icon onClick={closeModal} name="close-circle-outline"></ion-icon>
         </Close>
-        {professional ? (
+        {!loading ? (
           <div>
             <Card>
-              <img src={professional.profilePic} alt="profilePic" />
+              <img src={professional.profilePic} />
               <div>
                 <p>{professional.name}</p>
                 <p>{professional.Services.service}</p>
@@ -102,7 +105,9 @@ export default function ProfessionalInfos({
             </Calendar>
           </div>
         ) : (
-          "dsadas"
+          <LoadingGif>
+            <img src={loadingGif} alt="" />
+          </LoadingGif>
         )}
       </Container>
     </Modal>
