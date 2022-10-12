@@ -9,19 +9,18 @@ export default function Professionals() {
   const [professionals, setProfessionals] = useState([]);
 
   useEffect(() => {
-    const promise = getProfessionals(city);
-
-    promise
-      .then((res) => {
-        setProfessionals(res.data);
-      })
-
-      .catch((error) => {
+    async function getProf() {
+      try {
+        const response = await getProfessionals(city);
+        setProfessionals(response.data);
+      } catch (error) {
         alert(
           `Erro ao carregar profissionais: \n\n${error.response.status} - ${error.response.data}`
         );
         //setLoading(false);
-      });
+      }
+    }
+    getProf();
   }, [city]);
 
   return (
