@@ -6,6 +6,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ProfessionalCard from "../../components/ProfessionalCard/ProfessionalCard";
 import { getProfessionalByServices } from "../../services/getProfessionalsByService";
+import loadingGif from "../../images/loadingGif.gif";
 
 export default function ServicePage() {
   const { serviceId } = useParams();
@@ -19,7 +20,6 @@ export default function ServicePage() {
         const promise = await getProfessionalByServices(serviceId, city);
         setProfessionals(promise.data);
         setLoading(false);
-        console.log("Aqui", professionals);
       } catch (error) {
         alert(
           `Erro ao carregar profissionais: \n\n${error.response.status} - ${error.response.data}`
@@ -30,11 +30,16 @@ export default function ServicePage() {
   }, [city]);
 
   return (
-    <Container>
-      <Header />
-      <Professionals>
-        {!loading
-          ? professionals.map((professional, key) => {
+    <>
+      {loading ? (
+        <Loading>
+          <img src={loadingGif} />
+        </Loading>
+      ) : (
+        <Container>
+          <Header />
+          <Professionals>
+            {professionals.map((professional, key) => {
               return (
                 <ProfessionalCard
                   name={professional.name}
@@ -44,13 +49,24 @@ export default function ServicePage() {
                   key={key}
                 />
               );
-            })
-          : "aaa"}
-      </Professionals>
-      <Footer />
-    </Container>
+            })}
+          </Professionals>
+          <Footer />
+        </Container>
+      )}
+    </>
   );
 }
+
+const Loading = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #1a2035;
+`;
 
 const Container = styled.div`
   display: flex;
