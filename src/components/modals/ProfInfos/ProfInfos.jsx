@@ -93,7 +93,7 @@ export default function ProfessionalInfos({
               {availables.map((date, i) => {
                 return (
                   <div key={i}>
-                    <Day>{date.date}</Day>f
+                    <Day>{date.date}</Day>
                     <Times>
                       {date.times.map((time, index) => {
                         return <Time key={index}>{time}</Time>;
