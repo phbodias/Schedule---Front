@@ -9,7 +9,6 @@ const Card = styled.div`
   align-items: center;
   padding: 15px;
   box-sizing: border-box;
-  margin: 10px;
   font-size: 17px;
   cursor: pointer;
 
@@ -34,6 +33,11 @@ const Card = styled.div`
 
   :hover {
     background-color: hsl(240, 5%, 26%);
+  }
+
+  @media(max-width: 680px){
+    width: 100%;
+    margin: 5px 0;
   }
 `;
 
