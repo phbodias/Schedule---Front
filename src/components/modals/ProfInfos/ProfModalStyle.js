@@ -1,5 +1,13 @@
 import styled from "styled-components";
 
+const LoadingGif = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
 const Container = styled.div`
   position: relative;
   width: 100%;
@@ -92,4 +100,4 @@ const Time = styled.div`
   }
 `;
 
-export { Container, Close, Card, Address, Calendar, Times, Day, Time };
+export { LoadingGif, Container, Close, Card, Address, Calendar, Times, Day, Time };

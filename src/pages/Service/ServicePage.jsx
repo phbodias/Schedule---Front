@@ -59,8 +59,6 @@ export default function ServicePage() {
   );
 }
 
-
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -74,15 +72,22 @@ const Container = styled.div`
 `;
 
 const Professionals = styled.div`
-  margin-top: 120px;
-  margin-bottom: 60px;
-  width: 70%;
+  margin: 100px 0;
+  width: 80%;
+  padding: 20px;
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 30px 10px;
-  box-sizing: border-box;
+
+  @media (min-width: 680px) {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  @media (max-width: 716px) {
+    max-width: 80%;
+    padding: 0;
+  }
 `;
