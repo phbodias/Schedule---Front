@@ -29,7 +29,7 @@ export default function ProfessionalInfos({
       try {
         const promise = await getProfessionalById(professionalId);
         setProfessional(promise.data);
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
         alert(
           `Erro ao carregar profissional: \n\n${error.response.status} - ${error.response.data}`
@@ -93,10 +93,10 @@ export default function ProfessionalInfos({
               {availables.map((date, i) => {
                 return (
                   <div>
-                    <Day>{date.date}</Day>
+                    <Day key={i}>{date.date}</Day>
                     <Times>
                       {date.times.map((time, index) => {
-                        return <Time>{time}</Time>;
+                        return <Time key={index}>{time}</Time>;
                       })}
                     </Times>
                   </div>
@@ -106,7 +106,7 @@ export default function ProfessionalInfos({
           </div>
         ) : (
           <LoadingGif>
-            <img src={loadingGif} alt="" />
+            <img src={loadingGif} />
           </LoadingGif>
         )}
       </Container>
@@ -123,8 +123,8 @@ const customStyles = {
     borderRadius: "10px",
     boxSizing: "border-box",
     background: "rgba(255, 255, 255, 0.01)",
-    "backdrop-filter": "blur(13.5px)",
-    "-webkit-backdrop-filter": "blur(13.5px)",
+    backdropFilter: "blur(13.5px)",
+    WebkitBackdropFilter: "blur(13.5px)",
     border: "1px solid rgba(255, 255, 255, 0.18)",
     display: "flex",
     flexDirection: "column",
