@@ -2,16 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Login, User } from "./SidebarStyle";
 import Services from "../Services/Services";
+import { logout } from "../../services/logout";
 
 export default function Sidebar() {
   const [user, setUser] = useState(localStorage.getItem("userNameSchedule"));
   const [profilePic] = useState(localStorage.getItem("userPicSchedule"));
 
-  function logout() {
-    localStorage.removeItem("tokenSchedule");
+  function out() {
     setUser(false);
-    localStorage.removeItem("userNameSchedule");
-    localStorage.removeItem("userPicSchedule");
+    logout();
   }
 
   return (
@@ -21,7 +20,7 @@ export default function Sidebar() {
           <img src={profilePic} alt="profile" />
           <div>
             <p>Olá, {user}</p>
-            <p onClick={logout}>Sair</p>
+            <p onClick={out}>Sair</p>
           </div>
         </User>
       ) : (
@@ -40,6 +39,19 @@ export default function Sidebar() {
           </Link>
         </Login>
       )}
+      <Link
+        to="/schedule"
+        style={{
+          color: "#ffffff",
+          height: "40px",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <p>Minha Agenda</p>
+        </div>
+      </Link>
       <Services />
     </Container>
   );

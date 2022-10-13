@@ -24,10 +24,11 @@ const User = styled.div`
   img {
     border-radius: 100px;
     object-fit: cover;
+    width: 130px;
   }
 
   p {
-    margin-top: 10px;
+    margin-top: 20px;
   }
 `;
 
