@@ -8,10 +8,6 @@ export default function Services() {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  function gotToServicePage(serviceId) {
-    navigate(`/service`);
-  }
-
   useEffect(() => {
     async function getData() {
       try {

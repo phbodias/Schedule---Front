@@ -1,7 +1,19 @@
 import { Container } from "./FooterStyle";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../../services/logout";
+import { useState } from "react";
 
 export default function Footer({ actualPage }) {
+  const navigate = useNavigate();
+  
+  const [user, setUser] = useState(localStorage.getItem("userNameSchedule"));
+
+  function out() {
+    setUser(false);
+    logout();
+    navigate("/");
+  }
+
   return (
     <Container navigate>
       <Link to="/" style={{ textDecoration: "none" }}>
@@ -34,12 +46,19 @@ export default function Footer({ actualPage }) {
           <p>Agenda</p>
         </div>
       </Link>
-      <Link to="/sign-in" style={{ textDecoration: "none" }}>
-        <div>
+      {user ? (
+        <div onClick={out}>
           <ion-icon name="log-out-outline"></ion-icon>
           <p>Sair</p>
         </div>
-      </Link>
+      ) : (
+        <Link to="/sign-in" style={{ textDecoration: "none" }}>
+          <div>
+            <ion-icon name="log-in-outline"></ion-icon>
+            <p>Entrar</p>
+          </div>
+        </Link>
+      )}
     </Container>
   );
 }
