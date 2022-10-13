@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { getProfessionalById } from "../../../services/getProfessionalById";
-import { LoadingGif } from "../../../styles/loadingGif";
 import loadingGif from "../../../images/loadingGif.gif";
 import {
   Address,
@@ -10,6 +9,7 @@ import {
   Close,
   Container,
   Day,
+  LoadingGif,
   Time,
   Times,
 } from "./ProfModalStyle";

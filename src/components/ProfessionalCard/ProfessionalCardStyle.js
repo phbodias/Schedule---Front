@@ -8,6 +8,7 @@ const Card = styled.div`
   display: flex;
   align-items: center;
   padding: 15px;
+  margin: 10px;
   box-sizing: border-box;
   font-size: 17px;
   cursor: pointer;
