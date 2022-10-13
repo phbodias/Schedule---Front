@@ -106,7 +106,7 @@ export default function ProfessionalInfos({
           </div>
         ) : (
           <LoadingGif>
-            <img src={loadingGif} alt="" />
+            <img src={loadingGif} />
           </LoadingGif>
         )}
       </Container>
@@ -123,8 +123,8 @@ const customStyles = {
     borderRadius: "10px",
     boxSizing: "border-box",
     background: "rgba(255, 255, 255, 0.01)",
-    "backdrop-filter": "blur(13.5px)",
-    "-webkit-backdrop-filter": "blur(13.5px)",
+    backdropFilter: "blur(13.5px)",
+    WebkitBackdropFilter: "blur(13.5px)",
     border: "1px solid rgba(255, 255, 255, 0.18)",
     display: "flex",
     flexDirection: "column",
