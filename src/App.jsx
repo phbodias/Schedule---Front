@@ -11,7 +11,7 @@ import ServicePage from "./pages/Service/ServicePage";
 
 function App() {
   const [city, setCity] = useState(
-    localStorage.getItem("citySelected") || "Campinas"
+    localStorage.getItem("citySelected") || "1"
   );
 
   return (

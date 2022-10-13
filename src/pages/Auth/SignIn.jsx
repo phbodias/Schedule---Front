@@ -30,7 +30,6 @@ export default function SignIn() {
 
     promise
       .then((res) => {
-        console.log(res.data)
         localStorage.setItem("tokenSchedule", res.data.token);
         localStorage.setItem("userNameSchedule", res.data.user.name);
         localStorage.setItem("userPicSchedule", res.data.user.profilePic);
