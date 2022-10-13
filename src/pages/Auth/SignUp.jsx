@@ -30,9 +30,7 @@ export default function SignUp() {
     const promise = signUpService(data);
 
     promise
-      .then((res) => {
-        navigate("/sign-in");
-      })
+      .then(navigate("/sign-in"))
 
       .catch((error) => {
         alert(

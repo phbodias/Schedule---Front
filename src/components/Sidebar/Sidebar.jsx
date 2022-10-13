@@ -1,14 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Login, User } from "./SidebarStyle";
 import Services from "../Services/Services";
 
 export default function Sidebar() {
-  const navigate = useNavigate();
   const [user, setUser] = useState(localStorage.getItem("userNameSchedule"));
-  const [profilePic, setProfilePic] = useState(
-    localStorage.getItem("userPicSchedule")
-  );
+  const [profilePic] = useState(localStorage.getItem("userPicSchedule"));
 
   function logout() {
     localStorage.removeItem("tokenSchedule");

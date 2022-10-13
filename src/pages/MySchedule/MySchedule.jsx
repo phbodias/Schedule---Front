@@ -28,29 +28,29 @@ export default function MySchedule() {
       time: "9:30",
     },
     {
-        professionalName: "Dr Cesar",
-        address: "R. Blabla, nº59, Jardim Paineiras, Campinas - SP",
-        date: "10/10",
-        time: "9:30",
-      },
-      {
-        professionalName: "Dr Cesar",
-        address: "R. Blabla, nº59, Jardim Paineiras, Campinas - SP",
-        date: "10/10",
-        time: "9:30",
-      },
-      {
-        professionalName: "Dr Cesar",
-        address: "R. Blabla, nº59, Jardim Paineiras, Campinas - SP",
-        date: "10/10",
-        time: "9:30",
-      },
-      {
-        professionalName: "Dr Cesar",
-        address: "R. Blabla, nº59, Jardim Paineiras, Campinas - SP",
-        date: "10/10",
-        time: "9:30",
-      },
+      professionalName: "Dr Cesar",
+      address: "R. Blabla, nº59, Jardim Paineiras, Campinas - SP",
+      date: "10/10",
+      time: "9:30",
+    },
+    {
+      professionalName: "Dr Cesar",
+      address: "R. Blabla, nº59, Jardim Paineiras, Campinas - SP",
+      date: "10/10",
+      time: "9:30",
+    },
+    {
+      professionalName: "Dr Cesar",
+      address: "R. Blabla, nº59, Jardim Paineiras, Campinas - SP",
+      date: "10/10",
+      time: "9:30",
+    },
+    {
+      professionalName: "Dr Cesar",
+      address: "R. Blabla, nº59, Jardim Paineiras, Campinas - SP",
+      date: "10/10",
+      time: "9:30",
+    },
   ];
   return (
     <Container>
@@ -64,7 +64,7 @@ export default function MySchedule() {
       <Scheduled>
         {scheduled.map((event, index) => {
           return (
-            <Event>
+            <Event key={index}>
               <p>Dia: {event.date}</p>
               <p>Hora: {event.time}hrs</p>
               <p>Profissional: {event.professionalName}</p>

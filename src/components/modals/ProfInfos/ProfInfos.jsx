@@ -29,7 +29,7 @@ export default function ProfessionalInfos({
       try {
         const promise = await getProfessionalById(professionalId);
         setProfessional(promise.data);
-        setLoading(false)
+        setLoading(false);
       } catch (error) {
         alert(
           `Erro ao carregar profissional: \n\n${error.response.status} - ${error.response.data}`
@@ -92,11 +92,11 @@ export default function ProfessionalInfos({
             <Calendar>
               {availables.map((date, i) => {
                 return (
-                  <div>
+                  <div key={i}>
                     <Day>{date.date}</Day>
                     <Times>
                       {date.times.map((time, index) => {
-                        return <Time>{time}</Time>;
+                        return <Time key={index}>{time}</Time>;
                       })}
                     </Times>
                   </div>

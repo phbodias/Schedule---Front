@@ -9,7 +9,6 @@ export default function Header() {
   const [showCities, setShowCities] = useState(false);
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(true);
-  console.log("actualCity", city);
 
   useEffect(() => {
     async function getData() {
