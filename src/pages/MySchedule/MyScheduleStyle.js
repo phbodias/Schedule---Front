@@ -4,7 +4,6 @@ const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
   box-sizing: border-box;
-  background-color: #1a2035;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +13,6 @@ const Container = styled.div`
 const User = styled.div`
   height: 200px;
   border-bottom: solid 1px #65656a;
-  color: #ffffff;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;

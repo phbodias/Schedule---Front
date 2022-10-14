@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useState } from "react";
-import CityContext from "./contexts/cityContext";
+import Context from "./contexts/Context";
 import GlobalStyle from "./styles/Global/globalStyles";
 import Home from "./pages/Home/Home";
 import SignIn from "./pages/Auth/SignIn";
@@ -10,14 +10,13 @@ import MySchedule from "./pages/MySchedule/MySchedule";
 import ServicePage from "./pages/Service/ServicePage";
 
 function App() {
-  const [city, setCity] = useState(
-    localStorage.getItem("citySelected") || "1"
-  );
+  const [city, setCity] = useState(localStorage.getItem("citySelected") || "1");
+  const [mode, setMode] = useState(localStorage.getItem("mode") || "dark");
 
   return (
-    <CityContext.Provider value={{ city, setCity }}>
+    <Context.Provider value={{ city, setCity, mode, setMode }}>
       <BrowserRouter>
-        <GlobalStyle />
+        <GlobalStyle mode={mode} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sign-in" element={<SignIn />} />
@@ -27,7 +26,7 @@ function App() {
           <Route path="/service/:serviceId" element={<ServicePage />} />
         </Routes>
       </BrowserRouter>
-    </CityContext.Provider>
+    </Context.Provider>
   );
 }
 

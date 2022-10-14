@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const Container = styled.header`
   width: 100%;
-  background-color: #1a2035;
   display: flex;
   padding: 20px 0;
   box-sizing: border-box;

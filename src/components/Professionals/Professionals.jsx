@@ -2,12 +2,12 @@ import { useEffect, useState, useContext } from "react";
 import { getProfessionals } from "../../services/getProfessionalsServices";
 import { Container } from "./ProfessionalsStyle";
 import ProfessionalCard from "../ProfessionalCard/ProfessionalCard";
-import CityContext from "../../contexts/cityContext";
+import Context from "../../contexts/Context";
 import { LoadingGif } from "../../styles/loadingGif";
 import loadingGif from "../../images/loadingGif.gif";
 
 export default function Professionals() {
-  const { city } = useContext(CityContext);
+  const { city } = useContext(Context);
   const [professionals, setProfessionals] = useState([]);
   const [loading, setLoading] = useState(true);
 

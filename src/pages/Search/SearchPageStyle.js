@@ -7,7 +7,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1a2035;
   overflow-y: scroll;
   box-sizing: border-box;
 `;

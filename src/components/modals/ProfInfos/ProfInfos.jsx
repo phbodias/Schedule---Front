@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Modal from "react-modal";
+import Context from "../../../contexts/Context";
 import { getProfessionalById } from "../../../services/getProfessionalById";
 import loadingGif from "../../../images/loadingGif.gif";
 import {
@@ -21,6 +22,7 @@ export default function ProfessionalInfos({
   closeModal,
   professionalId,
 }) {
+  const { mode } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [professional, setProfessional] = useState(false);
 
@@ -67,7 +69,7 @@ export default function ProfessionalInfos({
       onRequestClose={closeModal}
       style={customStyles}
     >
-      <Container>
+      <Container mode={mode}>
         <Close>
           <ion-icon onClick={closeModal} name="close-circle-outline"></ion-icon>
         </Close>
