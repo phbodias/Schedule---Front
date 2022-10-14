@@ -20,6 +20,7 @@ const Container = styled.header`
     position: fixed;
     top: 0;
     height: 50px;
+    border-radius: 0;
   }
 `;
 
