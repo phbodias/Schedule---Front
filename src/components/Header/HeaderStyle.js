@@ -16,9 +16,10 @@ const Container = styled.header`
   border: 1px solid rgba(255, 255, 255, 0.8);
 
   @media (max-width: 1024px) {
-    width: 80%;
-    position: relative;
-    margin-bottom: -60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 50px;
   }
 `;
 
@@ -68,10 +69,13 @@ const Options = styled.div`
 
 const Mode = styled.div`
   position: absolute;
-  right: 20px;
+  right: 30px;
   top: 27px;
   font-size: 25px;
-  transition-duration: 2s;
+
+  @media (max-width: 1024px) {
+    top: 17px;
+  }
 `;
 
 export { Container, City, Cities, Options, Mode };
