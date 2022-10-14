@@ -4,7 +4,6 @@ import background from "../../images/background.png";
 
 const Container = styled.div`
   background-image: url("${background}");
-  background-color: red;
   background-position: center;
   object-fit: cover;
   height: 100%;
@@ -102,4 +101,10 @@ const StyledLink = styled(Link)`
   margin-top: 14px;
 `;
 
-export { Container, Content, Title, Form, Input, ShowPass, Button, StyledLink };
+const ErrorMessage = styled.div`
+  text-align: center;
+  margin-bottom: 5px;
+  color: red;
+`
+
+export { Container, Content, Title, Form, Input, ShowPass, Button, StyledLink, ErrorMessage };

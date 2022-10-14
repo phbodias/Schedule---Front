@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ThreeDots } from "react-loader-spinner";
 import { useNavigate } from "react-router-dom";
 import signUpService from "../../services/signup";
+import { signupSchema } from "../../validations/authSchemas";
 import {
   Container,
   Input,
@@ -11,12 +12,14 @@ import {
   Content,
   Title,
   ShowPass,
+  ErrorMessage,
 } from "./AuthStyle";
 
 export default function SignUp() {
   const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [sendError, setSendError] = useState("");
   const [data, setData] = useState({
     name: "",
     email: "",
@@ -24,20 +27,33 @@ export default function SignUp() {
     profilePic: "",
   });
 
-  function handleRegister(e) {
+  async function handleRegister(e) {
     e.preventDefault();
+    setLoading(true);
 
-    const promise = signUpService(data);
+    const isValid = await signupSchema.isValid(data);
+    if (isValid) {
+      const promise = signUpService(data);
 
-    promise
-      .then(navigate("/sign-in"))
+      promise
+        .then(() => {
+          navigate("/sign-in");
+        })
 
-      .catch((error) => {
-        alert(
-          `Erro ao cadastrar: \n\n${error.response.status} - ${error.response.data}`
-        );
-        setLoading(false);
-      });
+        .catch((error) => {
+          if (error.response.status === 422) {
+            setSendError("Preencha os dados corretamente.");
+          } else if (error.response.status === 409) {
+            setSendError("Este email já está em uso");
+          } else {
+            alert(error.response);
+          }
+          setLoading(false);
+        });
+    } else {
+      setSendError("Preencha os dados corretamente.");
+      setLoading(false);
+    }
   }
 
   function handleInputChange(e) {
@@ -48,6 +64,9 @@ export default function SignUp() {
     <Container>
       <Content>
         <Title>Junte-se a nós</Title>
+        <ErrorMessage>
+          {sendError !== "" && !loading ? <p>{sendError}</p> : ""}
+        </ErrorMessage>
         <Form onSubmit={handleRegister}>
           <Input
             type="name"

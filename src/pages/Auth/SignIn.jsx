@@ -10,37 +10,52 @@ import {
   Content,
   Title,
   ShowPass,
+  ErrorMessage,
 } from "./AuthStyle";
 import signInService from "../../services/signin";
+import { signinSchema } from "../../validations/authSchemas";
 
 export default function SignIn() {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [showPass, setShowPass] = useState(false);
+  const [sendError, setSendError] = useState("");
   const [data, setData] = useState({
     email: "",
     password: "",
   });
 
-  function handleRegister(e) {
+  async function handleRegister(e) {
     e.preventDefault();
     setLoading(true);
 
-    const promise = signInService(data);
+    const isValid = await signinSchema.isValid(data);
+    if (isValid) {
+      const promise = signInService(data);
 
-    promise
-      .then((res) => {
-        localStorage.setItem("tokenSchedule", res.data.token);
-        localStorage.setItem("userNameSchedule", res.data.user.name);
-        localStorage.setItem("userPicSchedule", res.data.user.profilePic);
-        navigate("/");
-      })
-      .catch((error) => {
-        alert(
-          `Erro ao logar: \n\n${error.response.status} - ${error.response.data}`
-        );
-        setLoading(false);
-      });
+      promise
+        .then((res) => {
+          localStorage.setItem("tokenSchedule", res.data.token);
+          localStorage.setItem("userNameSchedule", res.data.user.name);
+          localStorage.setItem("userPicSchedule", res.data.user.profilePic);
+          navigate("/");
+        })
+        .catch((error) => {
+          if (error.response.status === 422) {
+            setSendError("Preencha os dados corretamente.");
+          } else if (error.response.status === 401) {
+            setSendError("Email ou senha incorretos");
+          } else if (error.response.status === 404) {
+            setSendError("Você ainda não possui uma conta, faça seu cadastro.");
+          } else {
+            alert(error.response);
+          }
+          setLoading(false);
+        });
+    } else {
+      setSendError("Preencha os dados corretamente.");
+      setLoading(false);
+    }
   }
 
   function handleInputChange(e) {
@@ -52,6 +67,9 @@ export default function SignIn() {
       <Content>
         <Title>Bem vindo</Title>
         <Form onSubmit={handleRegister}>
+          <ErrorMessage>
+            {sendError !== "" && !loading ? <p>{sendError}</p> : ""}
+          </ErrorMessage>
           <Input
             type="email"
             name="email"
@@ -65,13 +83,13 @@ export default function SignIn() {
             <Input
               type={showPass && !loading ? "text" : "password"}
               name="password"
-              placeholder="senha"
+              placeholder="senha (min: 6 caracteres)"
               value={data.password}
               onChange={handleInputChange}
               disabled={loading}
               required
             />
-            {data.password.length && !loading > 0 ? (
+            {data.password.length > 0 && !loading ? (
               <p onClick={() => setShowPass(!showPass)}>
                 {showPass ? (
                   <ion-icon name="eye-off-outline"></ion-icon>
