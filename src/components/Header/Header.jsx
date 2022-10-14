@@ -1,14 +1,20 @@
 import { useState, useContext, useEffect } from "react";
 import ClickAwayListener from "react-click-away-listener";
-import { Cities, City, Container, Options } from "./HeaderStyle";
-import CityContext from "../../contexts/cityContext";
+import { Cities, City, Container, Mode, Options } from "./HeaderStyle";
+import Context from "../../contexts/Context";
 import getCities from "../../services/getCities";
+import { BsToggle2Off, BsToggle2On } from "react-icons/bs";
 
 export default function Header() {
-  const { city, setCity } = useContext(CityContext);
+  const { city, setCity, mode, setMode } = useContext(Context);
   const [showCities, setShowCities] = useState(false);
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  function changeMode() {
+    setMode(mode === "dark" ? "light" : "dark");
+    localStorage.setItem("mode", mode);
+  }
 
   useEffect(() => {
     async function getData() {
@@ -36,29 +42,34 @@ export default function Header() {
         ""
       ) : (
         <ClickAwayListener onClickAway={() => setShowCities(false)}>
-          <City onClick={() => setShowCities(!showCities)}>
-            <p>
-              <p>{cities[city - 1].city}</p>
+          <div>
+            <City onClick={() => setShowCities(!showCities)}>
+              <p>
+                <p>{cities[city - 1].city}</p>
+                {showCities ? (
+                  <ion-icon name="chevron-up-outline"></ion-icon>
+                ) : (
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                )}
+              </p>
               {showCities ? (
-                <ion-icon name="chevron-up-outline"></ion-icon>
+                <Cities>
+                  {cities.map((city, index) => {
+                    return (
+                      <Options key={index} onClick={() => changeCity(city.id)}>
+                        {city.city} - {city.States.initials}
+                      </Options>
+                    );
+                  })}
+                </Cities>
               ) : (
-                <ion-icon name="chevron-down-outline"></ion-icon>
+                ""
               )}
-            </p>
-            {showCities ? (
-              <Cities>
-                {cities.map((city, index) => {
-                  return (
-                    <Options key={index} onClick={() => changeCity(city.id)}>
-                      {city.city} - {city.States.initials}
-                    </Options>
-                  );
-                })}
-              </Cities>
-            ) : (
-              ""
-            )}
-          </City>
+            </City>
+            <Mode onClick={changeMode}>
+              {mode === "dark" ? <BsToggle2On /> : <BsToggle2Off />}
+            </Mode>
+          </div>
         </ClickAwayListener>
       )}
     </Container>

@@ -61,6 +61,7 @@ const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     height: 100%;
     font-size: 16px;
+    background-color: ${props => props.mode === "dark" ? "#1a2035" : "#F0F2F5"}
   }
   
   #root{

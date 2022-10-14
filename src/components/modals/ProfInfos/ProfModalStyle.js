@@ -6,14 +6,15 @@ const LoadingGif = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Container = styled.div`
   position: relative;
   width: 100%;
   max-width: 1000px;
   height: 100%;
-  background-color: #ffffff;
+  background-color: ${(props) =>
+    props.mode === "dark" ? "#1a2035" : "#F0F2F5"};
   border-radius: 10px;
   padding: 40px 20px;
   box-sizing: border-box;
@@ -24,7 +25,7 @@ const Close = styled.div`
   position: absolute;
   top: 15px;
   right: 25px;
-  font-size: 30px;
+  font-size: 35px;
 `;
 
 const Card = styled.div`
@@ -100,4 +101,14 @@ const Time = styled.div`
   }
 `;
 
-export { LoadingGif, Container, Close, Card, Address, Calendar, Times, Day, Time };
+export {
+  LoadingGif,
+  Container,
+  Close,
+  Card,
+  Address,
+  Calendar,
+  Times,
+  Day,
+  Time,
+};

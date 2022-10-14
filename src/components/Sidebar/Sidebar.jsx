@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Login, User } from "./SidebarStyle";
 import Services from "../Services/Services";
 import { logout } from "../../services/logout";
+import Context from "../../contexts/Context";
 
 export default function Sidebar() {
+  const { mode } = useContext(Context);
   const [user, setUser] = useState(localStorage.getItem("userNameSchedule"));
   const [profilePic] = useState(localStorage.getItem("userPicSchedule"));
 
@@ -14,7 +16,7 @@ export default function Sidebar() {
   }
 
   return (
-    <Container>
+    <Container mode={mode}>
       {user ? (
         <User>
           <img src={profilePic} alt="profile" />
@@ -29,7 +31,7 @@ export default function Sidebar() {
           <Link
             to="/sign-in"
             style={{
-              color: "white",
+              color: "black",
               fontSize: "20px",
               textDecoration: "underline",
               marginLeft: "5px",
@@ -42,7 +44,7 @@ export default function Sidebar() {
       <Link
         to="/schedule"
         style={{
-          color: "#ffffff",
+          color: "black",
           height: "40px",
           display: "flex",
           alignItems: "center",

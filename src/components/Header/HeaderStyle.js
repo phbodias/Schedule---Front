@@ -66,4 +66,12 @@ const Options = styled.div`
   }
 `;
 
-export { Container, City, Cities, Options };
+const Mode = styled.div`
+  position: absolute;
+  right: 20px;
+  top: 27px;
+  font-size: 25px;
+  transition-duration: 2s;
+`;
+
+export { Container, City, Cities, Options, Mode };

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
-import CityContext from "../../contexts/cityContext";
+import Context from "../../contexts/Context";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ProfessionalCard from "../../components/ProfessionalCard/ProfessionalCard";
@@ -11,7 +11,7 @@ import { LoadingGif } from "../../styles/loadingGif";
 
 export default function ServicePage() {
   const { serviceId } = useParams();
-  const { city } = useContext(CityContext);
+  const { city } = useContext(Context);
   const [loading, setLoading] = useState(true);
   const [professionals, setProfessionals] = useState([]);
 
@@ -68,7 +68,6 @@ const Container = styled.div`
   min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
-  background-color: #1a2035;
 `;
 
 const Professionals = styled.div`

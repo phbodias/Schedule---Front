@@ -4,8 +4,11 @@ const Container = styled.div`
   width: 18vw;
   height: fit-content;
   max-height: 600px;
-  background-color: hsl(240, 5%, 26%);
-  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(13.5px);
+  -webkit-backdrop-filter: blur(13.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -17,7 +20,6 @@ const Login = styled.div`
   width: 80%;
   height: 70px;
   border-bottom: solid 1px #65656a;
-  color: #ffffff;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -33,7 +35,6 @@ const User = styled.div`
   width: 80%;
   height: 80px;
   border-bottom: solid 1px #65656a;
-  color: #ffffff;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
