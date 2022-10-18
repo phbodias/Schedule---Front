@@ -23,33 +23,38 @@ serviço prestado.
 
 ```yml
 SignIn
-    - Página de login
 ```
+![alt text](./src/images/readmeImages/signIn.jpeg)
+
 
 ```yml
 SignUp
-    - Página de registro de usuário
 ```
+![alt text](./src/images/readmeImages/signUp.jpeg)
 
 ```yml
 Home
     - Página de exibição de profissionais filtrados por cidade
 ```
+![alt text](./src/images/readmeImages/home.jpeg)
 
 ```yml
 MySchedule (em construção)
     - Página de exibição de agendamentos do usuário
 ```
+![alt text](./src/images/readmeImages/schedule.jpeg)
 
 ```yml
 Search
     - Página para pesquisa de profissionais por serviço
 ```
+![alt text](./src/images/readmeImages/search.jpeg)
 
 ```yml
 Service
     - Página de exibição de profissionais filtrados por cidade e serviço prestado
 ```
+![alt text](./src/images/readmeImages/service.jpeg)
 
 ---
 
