@@ -63,7 +63,7 @@ Search
 ```
 
 <div align=center>
-    <img src="./src/images/readmeImages/service.jpeg" alt="drawing" width="200"/>
+    <img src="./src/images/readmeImages/search.jpeg" alt="drawing" width="200"/>
 </div>
 
 ```yml
